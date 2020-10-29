@@ -9,7 +9,7 @@ A basic Restaurant Finder Web App
 - The listing page must display the paginated restaurants
 - On clicking the restaurant, it should navigate to the details page and show all the relevant information
 
-## Advance Features
+## Advanced Features
 
 - Implementing search by restaurant name, dishes
 - Implementing filter by location, cuisine
