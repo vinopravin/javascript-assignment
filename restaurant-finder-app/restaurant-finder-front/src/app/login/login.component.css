@@ -1,0 +1,89 @@
+.input_box{
+    width: 95%;
+    margin: 5px 0px 5px 0px;
+    height: 2em;
+    border: 2px solid #4750ff;
+    border-radius: 25px;
+    padding: 5px 10px;
+}
+.input_container {
+    margin-bottom: 10px;
+}
+.btn{
+
+}
+.btn-submit{
+    align-self: flex-end;
+    font-size: 1.2em;
+    background: #4750ff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 1px 2px 6px #cacaca;
+    margin-right: 3%;
+}
+.login-form{
+    background: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+    margin: 5%;
+    padding: 5%;
+    border: 2px solid #f1f1f1;
+    box-shadow: 0px 3px 8px 0px #d6d6d6;
+    border-radius: 5px;
+}
+.container{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #4750ff;
+}
+.form-header {
+    height: 22%;
+}
+.form-header .title{
+    font-size: 3em;
+    color: #4750ff;
+}
+.button .material-icons{
+    margin: 0px 0px 0px 0.3em;
+}
+.center-logo{
+    background-color: #4750ff;
+}
+.nav-header img {
+    width: 50px;
+    height: 50px;
+}
+.nav-header h1 {
+    font-size: 1.5em;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+}
+.nav-header fa-icon {
+    position: absolute;
+    font-size: 1.5em;
+    color: #fff;
+    margin: 10px;
+    z-index: 100;
+    cursor: pointer;
+}
+.nav-header .material-icons {
+    position: absolute;
+    font-size: 1.5em;
+    color: #fff;
+    margin: 10px;
+    z-index: 100;
+    cursor: pointer;
+}

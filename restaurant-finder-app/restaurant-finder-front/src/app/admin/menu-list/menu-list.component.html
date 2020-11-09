@@ -1,0 +1,83 @@
+<div class="wrapper">
+    <div class="center-logo nav-header">
+        <span class="material-icons" (click)="goBack()">
+            keyboard_backspace
+        </span>
+        <h1>Restaurant Finder</h1>
+        <span class="material-icons admin-btn" routerLink="/admin/dashboard">
+            account_circle
+        </span>
+    </div>
+    <div class="added-details">
+        You can edit / update and remove menu items from here.
+    </div>
+    <div class="data-tables">
+        <table id="customers">
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let item of menuService.menuList; let i = index">
+                <td>{{ i+1 }}</td>
+                <td>{{ item.name }}</td>
+                <td class="action">
+                    <span class="material-icons" (click)="openModal('update', item)">
+                        create
+                    </span>
+                    <span class="material-icons" (click)="openModal('remove', item)">
+                        delete
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <button class="fab" (click)="openModal('add')">
+        <span class="material-icons">
+            add
+        </span>
+        Add Menu
+    </button>
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal" #myModal>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" #closeBtn1 (click)="closeModal('update')">&times;</span>
+
+        <form class="login-form">
+            <div class="form-header">
+                <span class="title">
+                    {{ selectedAction }} Items
+                </span>
+            </div>
+            <div class="input_container" id="name_box">
+                <label for="email">Name</label>
+                <input class="input_box" type="text" name="name" [(ngModel)]="itemDetails.name">
+            </div>
+            <div class="input_container" id="address_box">
+                <label for="email">Description</label>
+                <input class="input_box" type="text" name="description" [(ngModel)]="itemDetails.description">
+            </div>
+
+            <button type="submit" class="btn btn-submit" (click)="addItem()">
+                Submit
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="removeModal" class="modal" #removeModal>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" #closeBtn2 (click)="closeModal('remove')">&times;</span>
+
+        <p>Are you sure want to delete it?</p>
+        <button type="submit" class="btn btn-submit" (click)="removeItem()">
+            Yes
+        </button>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import '~bootstrap/dist/css/bootstrap.css'; */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+body, html {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+}
+ul{
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+.txt-center{
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    outline: none;
+}
+:focus {
+    outline: none !important;
+}
+.nav-header {
+    display: flex;
+    height: 10vh;
+    align-items: center;
+}
+.d-flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.d-flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #4750ff;
+    color: #fefefe;
+    cursor: default;
+    border-radius: 27px;
+}
+.admin-btn{
+    /* position: absolute; */
+    /* top: 3%; */
+    right: 3%;
+    font-size: 2em;
+    color: #fff;
+    cursor: pointer;
+}

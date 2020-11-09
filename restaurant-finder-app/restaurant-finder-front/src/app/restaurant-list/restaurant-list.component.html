@@ -1,0 +1,46 @@
+<div class="wrapper">
+    <div class="center-logo nav-header">
+        <span class="material-icons" (click)="goBack()">
+            keyboard_backspace
+        </span>
+        <h1>Restaurant Finder</h1>
+        <span class="material-icons admin-btn" routerLink="/admin/dashboard">
+            account_circle
+        </span>
+    </div>
+    <div>
+        <div class="search_box" id="search_box">
+            <input class="form-control" type="text" name="search" [(ngModel)]="filter"
+                placeholder="Search Restaurant..">
+        </div>
+        <div class="details-container">
+            <span class="location-name">
+                {{ selectedLocation }} Restaurants
+            </span>
+            <ul class="setting-option">
+                <li (click)="sort('name')">Sort</li>
+            </ul>
+        </div>
+        <div class="list-container" *ngIf="hasRestaurants">
+            <div *ngFor="let restaurant of restaurantList | filter:filter | orderBy: key : reverse | paginate: { itemsPerPage: 5, currentPage: p }"
+                [routerLink]="['/details', restaurant._id]" class="restaurant-card">
+                <div class="restaurant-details">
+                    <span class="name">{{ restaurant.name }}</span>
+                    <span class="locality">{{ restaurant.address?.locality }}</span>
+                    <span class="cuisine">
+                        <span *ngFor="let cuisine of restaurant.cuisines" class="pills">{{ cuisine }}</span>
+                    </span>
+                </div>
+                <div class="restaurant-thumbnail">
+                    <img [src]="restaurant.logo ? restaurant.logo: 'assets/icons/icon-72x72.png'" alt="restaurant logo">
+                </div>
+            </div>
+        </div>
+        <div class="list-container" *ngIf="!hasRestaurants" class="empty-box">
+            No restaurans available in {{ selectedLocation }}
+        </div>
+        <div class="pagination">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+</div>

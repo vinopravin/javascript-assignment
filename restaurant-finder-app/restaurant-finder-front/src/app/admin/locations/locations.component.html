@@ -1,0 +1,87 @@
+<div class="wrapper">
+    <div class="center-logo nav-header">
+        <span class="material-icons"  (click)="goBack()">
+            keyboard_backspace
+        </span>
+        <h1>Restaurant Finder</h1>
+        <span class="material-icons admin-btn" routerLink="/admin/dashboard">
+            account_circle
+        </span>
+    </div>
+    <div class="added-details">
+        You can edit / update and remove locations from here.
+    </div>
+    <div class="data-tables">
+        <table id="customers">
+            <tr>
+                <th>No</th>
+                <th>Location</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let location of locationService.locationsList; let i = index">
+                <td>{{ i+1 }}</td>
+                <td>{{ location.name }}</td>
+                <td class="action">
+                    <span class="material-icons" (click)="openModal('update', location)">
+                        create
+                    </span>
+                    <span class="material-icons" (click)="openModal('remove', location)">
+                        delete
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <button class="fab" (click)="openModal('add')">
+        <span class="material-icons">
+            add
+        </span>
+        Add Location
+    </button>
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal" #myModal>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" #closeBtn1 (click)="closeModal('update')">&times;</span>
+       
+        <form class="login-form">
+            <div class="form-header">
+                <span class="title">
+                    {{ selectedAction }} Location
+                </span>
+            </div>
+            <div class="input_container" id="email_box">
+                <label for="email">State</label>
+                <select class="input_box" type="text" name="state" [(ngModel)]="state" (ngModelChange)="getCities($event)">
+                    <option  *ngFor="let state of helperService.statesList" [value]="state">{{ state }}</option>
+                </select> 
+            </div>
+            <div class="input_container" id="password_box">
+                <label for="password">City</label>
+                <select class="input_box"  [(ngModel)]="selectedCity.name" type="text" name="city" (change)="selectCity(selectedCity)">
+                    <option  *ngFor="let citi of helperService.selectedStateCityList" [value]="citi.name">{{ citi.name }}</option>
+                </select> 
+            </div>
+            <button type="submit" class="btn btn-submit" (click)="addLocation()">
+                Submit
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="removeModal" class="modal" #removeModal>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" #closeBtn2 (click)="closeModal('remove')">&times;</span>
+       
+        <p>Are you sure want to delete it?</p>
+        <button type="submit" class="btn btn-submit" (click)="removeLocation()">
+            Yes
+        </button>
+    </div>
+</div>
+

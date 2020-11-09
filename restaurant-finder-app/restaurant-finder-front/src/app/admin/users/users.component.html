@@ -1,0 +1,135 @@
+<div class="wrapper">
+    <div class="center-logo nav-header">
+        <!-- <fa-icon [icon]="faArrowLeft" (click)="goBack()"></fa-icon> -->
+        <span class="material-icons"  (click)="goBack()">
+            keyboard_backspace
+        </span>
+        <h1>Restaurant Finder</h1>
+        <span class="material-icons admin-btn" routerLink="/admin/dashboard">
+            account_circle
+        </span>
+    </div>
+    <div class="added-details">
+        You can edit / update and remove locations from here.
+    </div>
+    <div class="data-tables">
+        <table id="customers">
+            <tr>
+                <th>No</th>
+                <th>Location</th>
+                <th>Count</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Chennai</td>
+                <td>14</td>
+                <td class="action">
+                    <span class="material-icons" (click)="openModal('udpate')">
+                        create
+                    </span>
+                    <span class="material-icons" (click)="openModal('remove')">
+                        delete
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Banglore</td>
+                <td>10</td>
+                <td class="action">
+                    <span class="material-icons">
+                        create
+                    </span>
+                    <span class="material-icons">
+                        delete
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Hyderabad</td>
+                <td>10</td>
+                <td class="action">
+                    <span class="material-icons">
+                        create
+                    </span>
+                    <span class="material-icons">
+                        delete
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>kolkatta</td>
+                <td>5</td>
+                <td class="action">
+                    <span class="material-icons">
+                        create
+                    </span>
+                    <span class="material-icons">
+                        delete
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <button class="fab" (click)="openModal('add')">
+        <span class="material-icons">
+            add
+        </span>
+        Add Location
+    </button>
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal" #myModal>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" #closeBtn (click)="closeModal('update')">&times;</span>
+       
+        <form class="login-form">
+            <div class="form-header">
+                <span class="title">
+                    Login
+                </span>
+            </div>
+            <div class="input_container" id="email_box">
+                <label for="email">State</label>
+                <!-- <input class="input_box" type="text" name="email">  -->
+                <select class="input_box" type="text" name="email">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select> 
+            </div>
+            <div class="input_container" id="password_box">
+                <label for="password">City</label>
+                <input class="input_box" type="text" name="password"> 
+            </div>
+            <button type="submit" class="btn btn-submit">
+                Submit
+                <!-- <fa-icon [icon]="faArrowRight"></fa-icon> -->
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="removeModal" class="modal" #removeModal>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" #closeBtn (click)="closeModal('remove')">&times;</span>
+       
+        <p>Are you sure want to delete it?</p>
+        <button type="submit" class="btn btn-submit">
+            Cancel
+        </button>
+        <button type="submit" class="btn btn-submit">
+            Yes
+        </button>
+    </div>
+</div>
+

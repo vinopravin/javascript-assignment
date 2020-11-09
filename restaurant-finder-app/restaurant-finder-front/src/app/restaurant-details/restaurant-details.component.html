@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <div class="center-logo nav-header">
+        <span class="material-icons" (click)="goBack()">
+            keyboard_backspace
+        </span>
+        <h1>Restaurant Finder</h1>
+        <span class="material-icons admin-btn" routerLink="/admin/dashboard">
+            account_circle
+        </span>
+    </div>
+    <div *ngIf="restaurantDetails" class="restaurant-details-container">
+        <div class="mini-container">
+            <span class="restaurant-name title">{{ restaurantDetails?.name }}</span>
+            <span class="restaurant-locality sub-title">{{ restaurantDetails?.address?.locality  }}</span>
+            <span class="restaurant-cuisines">
+                <span class="pills" *ngFor="let cusine of restaurantDetails.cuisines">{{ cusine }}</span>
+            </span>
+        </div>
+
+        <div class="restaurant-address mini-container">
+            <span class="title">Address</span>
+            <span class="address-details">
+                {{ restaurantDetails.address?.street_name }}, <br />
+                {{ restaurantDetails.address?.locality }}, <br />
+                {{ restaurantDetails.address?.state }}, <br />
+                {{ restaurantDetails.address?.country }} <br />
+            </span>
+        </div>
+
+        <div class="restaurant-menu mini-container">
+            <span class="title">Menus</span>
+            <div *ngFor="let item of menuItems" class="menu-card">
+                <span class="title">{{ item.name }}</span>
+                <span class="description">{{ item.description }}</span>
+            </div>
+        </div>
+
+    </div>
+</div>
